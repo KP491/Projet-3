@@ -1,0 +1,86 @@
+/* Styles généraux pour les mobiles */
+@media only screen and (max-width: 600px) {
+    /* Vos styles spécifiques pour les mobiles */
+}
+body {
+    font-size: 16px; /* Taille de police de base */
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px; /* Taille de police ajustée pour les mobiles */
+    }
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Style du bouton */
+.heart-button {
+    .heart-container {
+        display: inline-block;
+        position: relative;
+        width: 3em;
+        height: 3em;
+        cursor: pointer;
+      }
+      
+      .heart-container i {
+        font-size: 3em;
+        color: #ddd;
+      }
+      
+      /* Pseudo-élément utilisé pour simuler le remplissage du cœur */
+      .heart-container::before {
+        content: "\f004"; /* Code Unicode du cœur vide */
+        font-family: "Font Awesome 6 Free";
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 3em;
+        color: #ff0000; /* Couleur du cœur rempli */
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0; /* Initialement caché */
+      }
+      
+      /* Lorsque la checkbox est cochée, afficher le cœur rempli */
+      #heartCheckbox:checked + .heart-container::before {
+        opacity: 1;
+      }
+  }
+  
+  /* Cœur vide */
+  .heart-button::before,
+  .heart-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 30px;
+    background: none;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .heart-button::after {
+    right: 0;
+    border-radius: 0 0 10px 10px;
+  }
+  
+  /* Cœur rempli lorsqu'appuyé */
+  .heart-button:active::before,
+  .heart-button:active::after {
+    background: purple;
+  }
+  
